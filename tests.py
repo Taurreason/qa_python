@@ -54,9 +54,11 @@ class TestBooksCollector:
         collector.set_book_genre('Несуществующая', 'Ужасы')
         assert 'Несуществующая' not in collector.books_genre
 
-    def test_set_book_genre_all_genre_book(self, collector_with_book_and_genre):
-        collector, book, genre = collector_with_book_and_genre
-        assert collector.books_genre.get(book) == genre
+    def test_set_book_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дюна')
+        collector.set_book_genre('Дюна', 'Фантастика')
+        assert collector.books_genre.get('Дюна') == 'Фантастика'
 
     def test_set_book_genre_non_existent_genre(self):
         collector = BooksCollector()
