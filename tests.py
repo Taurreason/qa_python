@@ -103,7 +103,6 @@ class TestBooksCollector:
     def test_add_book_in_favorites_only_once(self):
         collector = BooksCollector()
         collector.add_new_book('1+1')
-        collector.set_book_genre('1+1', 'Комедия')
         collector.add_book_in_favorites('1+1')
         collector.add_book_in_favorites('1+1')
 
