@@ -66,11 +66,16 @@ class TestBooksCollector:
 
     def test_get_books_with_specific_genre_multiple(self):
         collector = BooksCollector()
-        for title in ['Сияние', 'Оно', 'Мизери']:
+        horror_books = ['Сияние', 'Оно', 'Мизери']
+        for title in horror_books:
             collector.add_new_book(title)
             collector.set_book_genre(title, 'Ужасы')
+
+        collector.add_new_book('Гарри Поттер')
+        collector.set_book_genre('Гарри Поттер', 'Фантастика')
+
         result = collector.get_books_with_specific_genre('Ужасы')
-        assert set(result) == {'Сияние', 'Оно', 'Мизери'}
+        assert set(result) == set(horror_books)
 
     def test_get_books_genre_returns_dict(self):
         collector = BooksCollector()
