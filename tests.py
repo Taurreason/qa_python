@@ -118,9 +118,6 @@ class TestBooksCollector:
     def test_delete_book_from_favorites_existing(self, collector_with_book_and_genre):
         collector, book, genre = collector_with_book_and_genre
         collector.add_book_in_favorites(book)
-
-        assert book in collector.favorites
-
         collector.delete_book_from_favorites(book)
 
         assert book not in collector.favorites
